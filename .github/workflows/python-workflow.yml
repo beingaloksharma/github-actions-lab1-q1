@@ -19,7 +19,13 @@ jobs:
         name: requirements
         path: requirements.txt
 
+    - name: Download requirment Text File
+      uses: actions/download-artifact@v4
+      with:
+        name: requirements
+
     - name: Install dependencies
       run: |
+        chmod +x requirements.txt
         pip install -r requirements.txt
         echo Hello GitHub Workflow
